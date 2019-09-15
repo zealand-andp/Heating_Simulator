@@ -1,8 +1,28 @@
 package net.awrp.heating_simulator;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class HeatingSimulatorTDD {
+public class HeatingSimulatorTDD {
+    private static final double DELTA = 0.001;
+
+    @Test
+    public void testHeatingUnitCreation() {
+        double minimumEffect = 7.0;
+        double maximumEffect = 25.0;
+
+        HeatingUnit unit = new HeatingUnit(minimumEffect, maximumEffect);
+
+        // The heating unit must be initialised with the proper minimum effect
+        assertEquals(minimumEffect, unit.getMinimumEffect(), DELTA);
+        // The heating unit must be initialised with the proper maximum effect
+        assertEquals(maximumEffect, unit.getMaximumEffect(), DELTA);
+        // The heating unit must be initialised with its heating effect set at minimum
+        assertEquals(minimumEffect, unit.getHeatingEffect(), DELTA);
+        // The heating unit must be initialised as being off
+        assertTrue(unit.isOff());
+    }
 
     /*********************************************************\
      TEST LIST
@@ -12,6 +32,8 @@ class HeatingSimulatorTDD {
      Get minimum heating effect
      Set heating effect per hour
      Read heating effect per hour
+     Turn on heating unit
+     Turn off heating unit
 
      Create accumulation tank
      Get volume
@@ -30,10 +52,17 @@ class HeatingSimulatorTDD {
      Get minimum flow rate
      Set flow rate per hour
      Get flow rate per hour
+     Turn on pump
+     Turn off pump
 
      Create radiator
      Get heat dissipation surface size
      Get heating effect per hour
+     Add thermostat
+     Get thermostat
+
+     Create thermostat
+     Get room
 
      Create room
      Get room size
@@ -50,6 +79,7 @@ class HeatingSimulatorTDD {
      Get house size
      Get heat loss per hour
      Get average temperature
+     Get outside temperature
 
      Notes:
         Heating effect is measured in kW
