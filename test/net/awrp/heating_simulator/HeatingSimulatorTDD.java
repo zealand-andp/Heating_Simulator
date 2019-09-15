@@ -45,9 +45,9 @@ public class HeatingSimulatorTDD {
      TEST LIST
 
      v Create heating unit with minimum effect 7 kW and maximum effect 25 kW
-     Create heating unit with minimum effect 4 kW and maximum effect 15 kW
-     Get maximum heating effect
-     Get minimum heating effect
+     v Create heating unit with minimum effect 4 kW and maximum effect 15 kW
+     v Get maximum heating effect
+     v Get minimum heating effect
      Set heating effect per hour
      Read heating effect per hour
      Turn on heating unit
