@@ -13,7 +13,7 @@ public class HeatingUnit {
     }
 
     public double getHeatingEffect() {
-        return 7.0;
+        return getMinimumEffect();
     }
 
     public boolean isOff() {
