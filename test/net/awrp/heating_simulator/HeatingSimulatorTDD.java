@@ -8,9 +8,26 @@ public class HeatingSimulatorTDD {
     private static final double DELTA = 0.001;
 
     @Test
-    public void testHeatingUnitCreation() {
+    public void testCreationOfHeatingUnitFor7kWTo25kW() {
         double minimumEffect = 7.0;
         double maximumEffect = 25.0;
+
+        HeatingUnit unit = new HeatingUnit(minimumEffect, maximumEffect);
+
+        // The heating unit must be initialised with the proper minimum effect
+        assertEquals(minimumEffect, unit.getMinimumEffect(), DELTA);
+        // The heating unit must be initialised with the proper maximum effect
+        assertEquals(maximumEffect, unit.getMaximumEffect(), DELTA);
+        // The heating unit must be initialised with its heating effect set at minimum
+        assertEquals(minimumEffect, unit.getHeatingEffect(), DELTA);
+        // The heating unit must be initialised as being off
+        assertTrue(unit.isOff());
+    }
+
+    @Test
+    public void testCreationOfHeatingUnitFor4kWTo15kW() {
+        double minimumEffect = 4.0;
+        double maximumEffect = 15.0;
 
         HeatingUnit unit = new HeatingUnit(minimumEffect, maximumEffect);
 
